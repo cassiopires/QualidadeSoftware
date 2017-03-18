@@ -1,13 +1,19 @@
+package com.example.tests;
+
+import java.io.Console;
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
+
 import org.junit.*;
+
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class LoginInvalido {
+public class LoginValido {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -22,15 +28,16 @@ public class LoginInvalido {
   }
 
   @Test
-  public void testLoginInvalido() throws Exception {
-    driver.get(baseUrl + "/trf4/controlador.php?acao=push_login");
+  public void testLoginValido() throws Exception {
+    driver.get(baseUrl + "trf4/controlador.php?acao=push_login");
     driver.findElement(By.id("visitante_email")).clear();
     driver.findElement(By.id("visitante_email")).sendKeys("cle@trf4.jus.br");
     driver.findElement(By.name("visitante_senha")).clear();
-    driver.findElement(By.name("visitante_senha")).sendKeys("321654");
+    driver.findElement(By.name("visitante_senha")).sendKeys("300572");
     driver.findElement(By.name("submit")).click();
-    driver.findElement(By.name("submit")).sendKeys(Keys.ESCAPE);
-    assertTrue(driver.getCurrentUrl().matches("^http://www2\\.trf4\\.jus\\.br/trf4/controlador\\.php[\\s\\S]acao=push_login&processo=&origem=$"));
+    Thread.sleep(1000);
+    String expected = "http://www2.trf4.jus.br/trf4/controlador.php?acao=push_altera_cadastro&validacao=1";
+	assertEquals(expected, driver.getCurrentUrl());
   }
 
   @After
