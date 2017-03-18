@@ -1,6 +1,5 @@
 package com.example.tests;
 
-import java.io.Console;
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 
@@ -13,7 +12,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class LoginValido {
+public class ConsultarProcesso {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -28,15 +27,21 @@ public class LoginValido {
   }
 
   @Test
-  public void testLoginValido() throws Exception {
+  public void testListarMeusProcessosConsultarProcesso() throws Exception {
     driver.get(baseUrl + "trf4/controlador.php?acao=push_login");
     driver.findElement(By.id("visitante_email")).clear();
     driver.findElement(By.id("visitante_email")).sendKeys("cle@trf4.jus.br");
     driver.findElement(By.name("visitante_senha")).clear();
     driver.findElement(By.name("visitante_senha")).sendKeys("300572");
     driver.findElement(By.name("submit")).click();
+    driver.findElement(By.name("push")).click();
+    driver.findElement(By.linkText("5090554-93.2014.404.7100")).click();
     Thread.sleep(1000);
-    String expected = "http://www2.trf4.jus.br/trf4/controlador.php?acao=push_altera_cadastro&validacao=1";
+    for (String winHandle : driver.getWindowHandles()) {
+      driver.switchTo().window(winHandle);
+    }
+    Thread.sleep(1000);
+    String expected = "http://www2.trf4.jus.br/trf4/controlador.php?acao=consulta_processual_resultado_pesquisa&selForma=NU&txtValor=50905549320144047100&selOrigem=TRF";
 	assertEquals(expected, driver.getCurrentUrl());
   }
 
