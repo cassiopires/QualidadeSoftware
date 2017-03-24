@@ -30,6 +30,7 @@ public class ListarProcessos {
 	@Test
 	public void testeListarProcessos() throws Exception {
 		this.driver = Driver.getDriver();
+		
 		PaginaLogin.login(this.driver);
 
 		PaginaCadastro.listarProcessos(this.driver);

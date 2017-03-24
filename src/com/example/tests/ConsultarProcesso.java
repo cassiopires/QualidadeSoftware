@@ -30,9 +30,11 @@ public class ConsultarProcesso {
 	@Test
 	public void testListarMeusProcessosConsultarProcesso() throws Exception {
 		this.driver = Driver.getDriver();
+		
 		PaginaLogin.login(this.driver);
 
 		PaginaCadastro.listarProcessos(this.driver);
+		
 		PaginaProcessos.clicarNoLink(this.driver, "5090554-93.2014.404.7100");
 		
 		for (String winHandle : driver.getWindowHandles()) {

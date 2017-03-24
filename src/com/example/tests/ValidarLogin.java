@@ -29,6 +29,7 @@ public class ValidarLogin {
 	@Test
 	public void testeValidarUsuario() throws Exception {
 		this.driver = Driver.getDriver();
+		
 		PaginaLogin.login(this.driver);
 		
 		Validador.validarResultado("http://www2.trf4.jus.br/trf4/controlador.php?acao=push_altera_cadastro&validacao=1", driver.getCurrentUrl());
