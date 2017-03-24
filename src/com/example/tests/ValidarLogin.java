@@ -32,7 +32,7 @@ public class ValidarLogin {
 		
 		PaginaLogin.login(this.driver);
 		
-		Validador.validarResultado("http://www2.trf4.jus.br/trf4/controlador.php?acao=push_altera_cadastro&validacao=12", driver.getCurrentUrl());
+		Validador.validarResultado("http://www2.trf4.jus.br/trf4/controlador.php?acao=push_altera_cadastro&validacao=1", driver.getCurrentUrl());
 	}
 
 	@After
