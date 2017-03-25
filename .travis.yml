@@ -1,10 +1,10 @@
 language: java
 
+addons:
+  firefox: "34.0.5"
+
 jdk:
   - oraclejdk7
   - openjdk7
 script:
   - gradle test
-  
-addons:
-  firefox: "49.0"
