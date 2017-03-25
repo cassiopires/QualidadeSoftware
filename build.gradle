@@ -14,7 +14,7 @@ dependencies {
 sourceSets {
     test {
         java {
-            srcDir "src/com/example/tests"
+            srcDir "tests"
         }
     }
 }
@@ -22,7 +22,7 @@ sourceSets {
 sourceSets {
     main {
         java {
-            srcDir "src/com/example/classes"
+            srcDir "classes"
         }
     }
 }
