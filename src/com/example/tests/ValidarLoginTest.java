@@ -37,11 +37,11 @@ public class ValidarLoginTest {
 
 	@After
 	public void tearDown() throws Exception {
-		this.driver.quit();
+		/*this.driver.quit();
 		String verificationErrorString = verificationErrors.toString();
 		if (!"".equals(verificationErrorString)) {
 			fail(verificationErrorString);
-		}
+		}*/
 	}
 
 	private boolean isElementPresent(By by) {
