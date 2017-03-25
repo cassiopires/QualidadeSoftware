@@ -17,7 +17,7 @@ import com.example.classes.PaginaCadastro;
 import com.example.classes.PaginaLogin;
 import com.example.classes.Validador;
 
-public class ListarProcessos {
+public class ListarProcessosTest {
 	private WebDriver driver;
 	private boolean acceptNextAlert = true;
 	private StringBuffer verificationErrors = new StringBuffer();

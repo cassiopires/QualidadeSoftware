@@ -1,6 +1,5 @@
 package com.example.tests;
 
-import java.io.Console;
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 
@@ -14,10 +13,12 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import com.example.classes.Driver;
+import com.example.classes.PaginaCadastro;
 import com.example.classes.PaginaLogin;
+import com.example.classes.PaginaProcessos;
 import com.example.classes.Validador;
 
-public class ValidarLogin {
+public class ConsultarProcessoTest {
 	private WebDriver driver;
 	private boolean acceptNextAlert = true;
 	private StringBuffer verificationErrors = new StringBuffer();
@@ -27,13 +28,21 @@ public class ValidarLogin {
 	}
 
 	@Test
-	public void testeValidarUsuario() throws Exception {
+	public void testListarMeusProcessosConsultarProcesso() throws Exception {
 		this.driver = Driver.getDriver();
 		
 		PaginaLogin.login(this.driver);
+
+		PaginaCadastro.listarProcessos(this.driver);
 		
-		Validador.validarResultado("http://www2.trf4.jus.br/trf4/controlador.php?acao=push_altera_cadastro&validacao=1", driver.getCurrentUrl());
-	}
+		PaginaProcessos.clicarNoLink(this.driver, "5090554-93.2014.404.7100");
+		
+		for (String winHandle : driver.getWindowHandles()) {
+			driver.switchTo().window(winHandle);
+		}
+		
+		Validador.validarResultado("http://www2.trf4.jus.br/trf4/controlador.php?acao=consulta_processual_resultado_pesquisa&selForma=NU&txtValor=50905549320144047100&selOrigem=TRF", driver.getCurrentUrl());
+    }
 
 	@After
 	public void tearDown() throws Exception {
