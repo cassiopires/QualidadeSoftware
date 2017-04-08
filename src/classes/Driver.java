@@ -13,7 +13,7 @@ public class Driver {
 
 	public static WebDriver getDriver() {
 		if (driver == null) {
-			System.setProperty("webdriver.chrome.driver", "src\\libs\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 			driver = new ChromeDriver();
 		    
 			//System.setProperty("webdriver.firefox.marionette","src\\libs\\geckodriver.exe");
