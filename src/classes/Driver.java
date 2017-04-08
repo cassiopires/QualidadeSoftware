@@ -18,6 +18,7 @@ public class Driver {
 		    
 			//System.setProperty("webdriver.firefox.marionette","src\\libs\\geckodriver.exe");
 			//driver = new FirefoxDriver();
+			
 			baseUrl = "http://www2.trf4.jus.br/";
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		}
