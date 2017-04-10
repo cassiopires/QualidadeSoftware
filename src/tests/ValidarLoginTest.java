@@ -11,7 +11,9 @@ import static org.hamcrest.CoreMatchers.*;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import classes.Driver;
 import classes.PaginaLogin;
@@ -27,13 +29,29 @@ public class ValidarLoginTest {
 	}
 
 	@Test
-	public void testeValidarUsuario() throws Exception {
+	public void testeValidarUsuarioValido() throws Exception {
 		this.driver = Driver.getDriver();
 		
+		PaginaLogin.setUsuarioSenha("cle@trf4.jus.br", "zarag0za");
 		PaginaLogin.login(this.driver);
 		
 		Validador.validarResultado("http://www2.trf4.jus.br/trf4/controlador.php?acao=push_altera_cadastro&validacao=1", driver.getCurrentUrl());
 	}
+	
+	@Test
+	public void testeValidarUsuarioInvalido() throws Exception {
+		this.driver = Driver.getDriver();
+		
+		PaginaLogin.setUsuarioSenha("cle@trf4.jus.br", "teste-teste");
+		PaginaLogin.login(this.driver);
+		
+		WebDriverWait wait = new WebDriverWait(driver, 2);
+        wait.until(ExpectedConditions.alertIsPresent());
+		Alert alert = this.driver.switchTo().alert();
+        alert.accept();
+		
+		Validador.validarResultado("http://www2.trf4.jus.br/trf4/controlador.php?acao=push_login&processo=&origem=", driver.getCurrentUrl());
+    }
 
 	@After
 	public void tearDown() throws Exception {
