@@ -19,13 +19,6 @@ import classes.Validador;
 
 public class ListarProcessosTest {
 	private WebDriver driver;
-	private boolean acceptNextAlert = true;
-	private StringBuffer verificationErrors = new StringBuffer();
-
-	@Before
-	public void setUp() throws Exception {
-
-	}
 
 	@Test
 	public void testeListarProcessos() throws Exception {
@@ -38,45 +31,4 @@ public class ListarProcessosTest {
 		Validador.validarResultado("http://www2.trf4.jus.br/trf4/controlador.php?acao=push_processos&pagina=1&aviso=", driver.getCurrentUrl());
 	}
 
-	@After
-	public void tearDown() throws Exception {
-		/*this.driver.quit();
-		String verificationErrorString = verificationErrors.toString();
-		if (!"".equals(verificationErrorString)) {
-			fail(verificationErrorString);
-		}*/
-	}
-
-	private boolean isElementPresent(By by) {
-		try {
-			this.driver.findElement(by);
-			return true;
-		} catch (NoSuchElementException e) {
-			return false;
-		}
-	}
-
-	private boolean isAlertPresent() {
-		try {
-			this.driver.switchTo().alert();
-			return true;
-		} catch (NoAlertPresentException e) {
-			return false;
-		}
-	}
-
-	private String closeAlertAndGetItsText() {
-		try {
-			Alert alert = this.driver.switchTo().alert();
-			String alertText = alert.getText();
-			if (acceptNextAlert) {
-				alert.accept();
-			} else {
-				alert.dismiss();
-			}
-			return alertText;
-		} finally {
-			acceptNextAlert = true;
-		}
-	}
 }

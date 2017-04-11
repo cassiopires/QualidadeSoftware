@@ -1,7 +1,9 @@
 package classes;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class Elemento {
 
@@ -25,6 +27,18 @@ public class Elemento {
 
 	public static void clicarPorLink(WebDriver driver, String elemento) {
 		driver.findElement(By.linkText(elemento)).click();
+	}
+	
+	public static String clicarOk(WebDriver driver) {
+		Alert alert = driver.switchTo().alert();
+		String alertText = alert.getText();
+  	    alert.accept();
+  	    return alertText;
+	}
+	
+	public static void selecionarPorId(WebDriver driver, String elemento, String valor) {
+		Select droplist = new Select(driver.findElement(By.id(elemento)));   
+		droplist.selectByValue(valor);
 	}
 	
 }
