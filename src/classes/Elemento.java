@@ -30,8 +30,22 @@ public class Elemento {
 		driver.findElement(By.linkText(elemento)).click();
 	}
 	
-	public static String clicarOk(WebDriver driver) {
-		Pagina.esperar(1000);
+	public static String clicarOkAlert(WebDriver driver) {
+		Pagina.esperar(2000);
+
+		if (Driver.tipo == "phantom") {
+			((JavascriptExecutor) driver).executeScript("window.alert = function(msg){};");
+			return "";
+		} else {
+			Alert alert = driver.switchTo().alert();
+			String alertText = alert.getText();
+			alert.accept();
+			return alertText;
+		}
+	}
+	
+	public static String clicarOkConfirm(WebDriver driver) {
+		Pagina.esperar(2000);
 
 		if (Driver.tipo == "phantom") {
 			((JavascriptExecutor) driver).executeScript("window.confirm = function(msg){return true;};");

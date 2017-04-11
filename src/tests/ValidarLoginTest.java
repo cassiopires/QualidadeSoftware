@@ -43,9 +43,7 @@ public class ValidarLoginTest {
 		
 		PaginaLogin.login(this.driver);
 		
-		Pagina.esperar(1000);
-		
-		Elemento.clicarOk(this.driver);
+		Elemento.clicarOkAlert(this.driver);
 		
 		Validador.validarResultado("http://www2.trf4.jus.br/trf4/controlador.php?acao=push_login&processo=&origem=", driver.getCurrentUrl());
     }

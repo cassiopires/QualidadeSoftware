@@ -24,13 +24,9 @@ public class ExcluirProcessoTest {
 		
 		Elemento.clicarPorNome(this.driver, "remover");
 		
-		Pagina.esperar(2000);
+		Elemento.clicarOkConfirm(this.driver);
 		
-		Elemento.clicarOk(this.driver);
-		
-		Pagina.esperar(2000);
-		
-		Elemento.clicarOk(this.driver);
+		Elemento.clicarOkAlert(this.driver);
 		
 		Validador.validarResultado("http://www2.trf4.jus.br/trf4/controlador.php?acao=push_processos&pagina=1&aviso=1%20processo(s)%20exclu%EDdo(s).", driver.getCurrentUrl());
 	}
