@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 import classes.Driver;
 import classes.Elemento;
+import classes.Pagina;
 import classes.PaginaLogin;
 import classes.Validador;
 
@@ -23,7 +24,11 @@ public class ExcluirProcessoTest {
 		
 		Elemento.clicarPorNome(this.driver, "remover");
 		
+		Pagina.esperar(1000);
+		
 		Elemento.clicarOk(this.driver);
+		
+		Pagina.esperar(1000);
 		
 		Elemento.clicarOk(this.driver);
 		

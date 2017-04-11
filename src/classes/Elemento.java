@@ -32,13 +32,16 @@ public class Elemento {
 	
 	public static String clicarOk(WebDriver driver) {
 		Pagina.esperar(1000);
-		//Alert alert = driver.switchTo().alert();
-		//String alertText = alert.getText();
-  	    //alert.accept();
-  	    
-  	  ((JavascriptExecutor) driver).executeScript("window.confirm = function(msg){return true;};");
-  	  
-  	    return "";
+
+		if (Driver.tipo == "phantom") {
+			((JavascriptExecutor) driver).executeScript("window.confirm = function(msg){return true;};");
+			return "";
+		} else {
+			Alert alert = driver.switchTo().alert();
+			String alertText = alert.getText();
+			alert.accept();
+			return alertText;
+		}
 	}
 	
 	public static void selecionarPorId(WebDriver driver, String elemento, String valor) {

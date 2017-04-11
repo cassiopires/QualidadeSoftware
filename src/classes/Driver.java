@@ -21,6 +21,7 @@ public class Driver {
 
 	public static WebDriver driver;	
 	public static String baseUrl;
+	public static String tipo;
 
 	public static WebDriver getDriver() {
 		if (driver == null) {			
@@ -29,13 +30,16 @@ public class Driver {
 			if (OS.indexOf("win") >= 0) {
 				System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 				driver = new ChromeDriver();
+				tipo = "chrome";
 
 				//System.setProperty("webdriver.firefox.marionette","src\\libs\\geckodriver.exe");
 				//driver = new FirefoxDriver();
+				//tipo = "firefox";
 			} else {
 				DesiredCapabilities cap = new DesiredCapabilities();
 				cap.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, "/usr/local/bin/phantomjs");
-				driver = new PhantomJSDriver(cap);		
+				driver = new PhantomJSDriver(cap);
+				tipo = "phantom";
 			}	
 			
 			baseUrl = "http://www2.trf4.jus.br/";
