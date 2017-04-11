@@ -35,7 +35,6 @@ public class Driver {
 			} else {
 				DesiredCapabilities cap = new DesiredCapabilities();
 				cap.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, "/usr/local/bin/phantomjs");
-				cap.setCapability("fixSessionCapabilities",false);
 				driver = new PhantomJSDriver(cap);		
 			}	
 			
