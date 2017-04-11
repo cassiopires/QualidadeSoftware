@@ -24,7 +24,7 @@ public class ExcluirProcessoTest {
 		
 		Elemento.clicarPorNome(this.driver, "remover");
 		
-		Elemento.clicarOkConfirm(this.driver);
+		//Elemento.clicarOkConfirm(this.driver);
 		
 		Elemento.clicarOkAlert(this.driver);
 		

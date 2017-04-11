@@ -48,9 +48,7 @@ public class Elemento {
 		Pagina.esperar(2000);
 
 		if (Driver.tipo == "phantom") {
-			System.out.println("confirm");
 			((JavascriptExecutor) driver).executeScript("window.confirm = function(msg){return true;};");
-			
 			return "";
 		} else {
 			Alert alert = driver.switchTo().alert();
