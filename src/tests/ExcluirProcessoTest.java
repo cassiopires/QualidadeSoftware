@@ -28,7 +28,7 @@ public class ExcluirProcessoTest {
 		
 		Elemento.clicarOkAlert(this.driver);
 		
-		Validador.validarResultado("http://www2.trf4.jus.br/trf4/controlador.php?acao=push_processos&pagina=1&aviso=1%20processo(s)%20exclu%EDdo(s).", driver.getCurrentUrl());
+		Validador.validarResultado("http://www2.trf4.jus.br/trf4/controlador.php?acao=push_processos&pagina=1", driver.getCurrentUrl().substring(0, 73));
 	}
 
 }

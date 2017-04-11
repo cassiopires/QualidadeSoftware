@@ -35,7 +35,7 @@ public class AlterarSenhaTest {
 		
 		Elemento.clicarOkAlert(this.driver);
 		
-		Validador.validarResultado("http://www2.trf4.jus.br/trf4/controlador.php?acao=push_altera_cadastro&msg=Suas%20informa%E7%F5es%20foram%20registradas%20com%20sucesso.", driver.getCurrentUrl());
+		Validador.validarResultado("http://www2.trf4.jus.br/trf4/controlador.php?acao=push_altera_cadastro&msg=Suas", driver.getCurrentUrl().substring(0, 79));
 	}
 
 }
