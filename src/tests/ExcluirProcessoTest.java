@@ -24,11 +24,11 @@ public class ExcluirProcessoTest {
 		
 		Elemento.clicarPorNome(this.driver, "remover");
 		
-		Pagina.esperar(1000);
+		Pagina.esperar(2000);
 		
 		Elemento.clicarOk(this.driver);
 		
-		Pagina.esperar(1000);
+		Pagina.esperar(2000);
 		
 		Elemento.clicarOk(this.driver);
 		

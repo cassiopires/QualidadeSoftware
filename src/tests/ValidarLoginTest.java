@@ -17,6 +17,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import classes.Driver;
 import classes.Elemento;
+import classes.Pagina;
 import classes.PaginaLogin;
 import classes.Validador;
 
@@ -41,6 +42,8 @@ public class ValidarLoginTest {
 		PaginaLogin.setUsuarioSenha("cle@trf4.jus.br", "teste-teste");
 		
 		PaginaLogin.login(this.driver);
+		
+		Pagina.esperar(1000);
 		
 		Elemento.clicarOk(this.driver);
 		

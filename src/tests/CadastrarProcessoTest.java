@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 import classes.Driver;
 import classes.Elemento;
+import classes.Pagina;
 import classes.PaginaLogin;
 import classes.Validador;
 
@@ -26,6 +27,8 @@ public class CadastrarProcessoTest {
 		Elemento.selecionarPorId(this.driver, "origem", "trf4");
 		
 		Elemento.clicarPorNome(this.driver, "Pesquisar");
+		
+		Pagina.esperar(1000);
 
 		Elemento.clicarOk(this.driver);
 		

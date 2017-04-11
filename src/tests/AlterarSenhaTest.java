@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import classes.Driver;
 import classes.Elemento;
+import classes.Pagina;
 import classes.PaginaLogin;
 import classes.Validador;
 
@@ -31,6 +32,8 @@ public class AlterarSenhaTest {
 		Elemento.digitarPorNome(driver, "visitante_senha_conf", "zarag0za");
 		
 		Elemento.clicarPorNome(driver, "salvar");
+		
+		Pagina.esperar(1000);
 		
 		Elemento.clicarOk(this.driver);
 		
